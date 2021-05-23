@@ -1,4 +1,4 @@
-FROM centos:letest
+FROM centos:latest
 MAINTAINER saurav51@gmail.com
 RUN yum install -y httpd \
     zip \
@@ -6,7 +6,7 @@ RUN yum install -y httpd \
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page258/loxury /var/www/html/
 WORKDIR /var/www/html
 RUN unzip loxury.zip
-RUN cp -rvf loxury/*
+RUN cp -rvf loxury/* .
 RUN rm -rf loxury  loxury.zip
-CMD ['/usr/sbin/httpd", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 EXPOSE 80
